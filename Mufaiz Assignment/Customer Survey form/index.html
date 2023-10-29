@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Survey Form</title>
+     <style>
+      * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  font-weight: bold;
+  background-image: linear-gradient(#d6d0d0, #c9bab8);
+}
+
+.container {
+  width: 60vw;
+  display: block;
+  margin: auto;
+  background-image: linear-gradient(to right, #645a41, #3E5151);
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form-data {
+  margin: 1rem;
+}
+
+.input-field {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem
+}
+
+.input-field label {
+  display: block;
+}
+
+.input {
+  width: 27rem;
+  padding: 7px;
+  font-size: 1rem;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+}
+
+.country-select {
+  width: 100px;
+}
+
+.name-input {
+  padding: 7px;
+  font-size: 1rem;
+  border-radius: 12px;
+  outline: none;
+  border: none;
+  margin-right: 13px;
+}
+
+.input-tag {
+  margin-bottom: 1rem;
+}
+
+.heading-1 {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn {
+  width: 70px;
+  border-radius: 15px;
+  cursor: pointer;
+  background-color: rgb(187, 176, 176);
+  padding: 0.5rem;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+select {
+  font-weight: bold;
+  padding: 3px;
+  outline: none;
+  border-radius: 9px;
+}
+
+#dob {
+  font-weight: bold;
+  padding: 3px;
+  outline: none;
+  border: none;
+  border-radius: 9px;
+}
+
+.popup {
+  border-radius: 10px;
+  width: 60vw;
+  background-color: white;
+  display: block;
+  margin: auto;
+}
+
+.overlay {
+  position: fixed;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  transition: all 0.5s;
+  display: none;
+}
+
+.popup-content {
+  margin-top: 1rem;
+}
+
+.close-popup {
+  cursor: pointer;
+  background: none;
+  border: none;
+  position: relative;
+  top: -50px;
+  left: 95%;
+}
+
+.modal-heading {
+  text-align: center;
+  padding-top: 14px;
+}
+
+.customer-details {
+  padding: 10px;
+  margin-left: 5rem;
+}
+     </style>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading-1">Customer Survey Form</h1>
+      <div class="form">
+        <form action="" class="form-data">
+          <div class="name input-field">
+            <div class="first-name">
+              <label for="firstName"> First Name</label>
+              <input type="text" class="name-input" id="first-name" required />
+            </div>
+            <div class="last-name">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="name-input" id="lastName" required/>
+            </div>
+          </div>
+          <label for="email-id">Email</label>
+          <div class="email input-tag">
+            <input type="email" class="input" id="email-id" required />
+          </div>
+
+          <label for="mobile">Phone</label>
+          <div class="number input-tag">
+            <input type="tel" class="input" id="mobile" required />
+          </div>
+          
+          <label for="dob">D.O.B</label>
+          <div class="DOB input-tag">
+            <input type="date"  id="dob" required>
+          </div>
+
+          <label for="">Gender</label>
+          <div class="gender input-tag">
+            Male<input type="radio" name="action" value="Male" required>
+            Female <input type="radio"name="action" value="Female" required>
+            Other <input type="radio" name="action"value="Other" required>
+          </div>
+         
+          
+          <label for=>Country</label>
+          <div class="country-list input-tag">
+            <select class="country-select">
+                <option value="India" class="option-element">India</option>
+                <option value="Pakistan" class="option-element">Pakistan</option>
+                <option value="India" class="option-element">India</option>
+                <option value="Pakistan" class="option-element">Pakistan</option>
+            </select>
+          </div>
+          <label for>Profession(optional)</label>
+          <div class="profession input-tag">
+              <input type="text" class="input" id="prof">
+         </div>
+
+         <div class="buttons input-tag">
+             <button type="reset" class="reset  btn">Reset</button>
+            <button class="submit btn" >Submit</button>
+         </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="overlay ">
+
+    <div class="popup">
+      <h1 class="modal-heading">Customer Details</h1>
+    <button class="close-popup">&#10060;</button>
+    <div class="popup-content">
+    <!-- <p class="customer-details">First Name:Mufaiz</p>
+    <p class="customer-details">Last Name:Tasaduq</p>
+    <p class="customer-details">Email:Kachroomufaiz@gmail.com</p>
+    <p class="customer-details">Phone:6005008486</p>
+    <p class="customer-details">D.O.B:21-07-2000</p>
+    <p class="customer-details">Gender:Male</p>
+    <p class="customer-details">Country:India</p>
+    <p class="customer-details">Profession:Student</p>  -->
+    </div>
+    </div>
+  </div>  
+  <script>
+  'use strict';
+
+    const submitBtn = document.querySelector('.submit');
+    const closePopupBtn = document.querySelector('.close-popup');
+    const formContent = document.querySelector('.popup-content')
+    const popUp = document.querySelector('.overlay');
+    const emailInput = document.getElementById('email-id');
+    
+    
+    const submitForm = function () {
+        const firstName = document.getElementById('first-name');
+        const lastName = document.getElementById('lastName');
+        const emailId = document.getElementById('email-id');
+        const mobileNumber = document.getElementById('mobile');
+        const dob = document.getElementById('dob');
+        const country = document.querySelector('select');
+        const selectedCountry = country.options[country.selectedIndex];
+        const profession = document.getElementById('prof')
+    
+        const allGender = document.querySelectorAll('input[name="action"]');
+        let selectedGender = '';
+        allGender.forEach(input => {
+            if (input.checked) {
+                selectedGender = input;
+            }
+        });
+        console.log(selectedGender);
+        console.log(lastName);
+        const markup = `
+        <p class="customer-details">First Name:${firstName.value}</p>
+        <p class="customer-details">Last Name:${lastName.value}</p>
+        <p class="customer-details">Email:${emailId.value}</p>
+        <p class="customer-details">Phone:${mobileNumber.value}</p>
+        <p class="customer-details">D.O.B:${dob.value}</p>
+        <p class="customer-details">Gender:${selectedGender.value}</p>
+        <p class="customer-details">Country:${selectedCountry.value}</p>
+        <p class="customer-details">Profession:${profession.value}</p> 
+    `
+        formContent.innerHTML = markup;
+    
+        popUp.style.display = 'block';
+    
+    }
+    
+    // VALIDATING FORM
+    const validateForm = function () {
+        const firstNameInput = document.getElementById('first-name');
+        const lastNameInput = document.getElementById('lastName');
+        const emailInput = document.getElementById('email-id');
+        const mobileInput = document.getElementById('mobile');
+        const dobInput = document.getElementById('dob');
+        const genderInputs = document.querySelectorAll('input[name="action"]:checked');
+    
+        if (!firstNameInput.value || !lastNameInput.value || !emailInput.value || !dobInput.value | !mobileInput.value || genderInputs.length === 0) {
+            alert('Please fill out all the required fields');
+            return false;
+        }
+        else {
+            return true
+        }
+    };
+    
+    // CLOSE POPUP
+    const closePopup = function () {
+        document.querySelector('.overlay').style.display = 'none';
+        document.querySelector('.form-data').reset();
+    }
+    
+    // VALIDATING EMAIL
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    
+    const validateEmail = function () {
+        if (!emailRegex.test(emailInput.value)) {
+            alert('Please enter a valid email address');
+            return false;
+        }
+        return true;
+    };
+    
+    // VALIDATE MOBILE NUMBER
+    const mobileInput = document.getElementById('mobile');
+    const phoneRegex = /^[0-9]{10}$/; //  10-digit phone number.
+    
+    const validatePhoneNumber = function () {
+        if (!phoneRegex.test(mobileInput.value)) {
+            alert('Please enter a valid  phone number');
+            return false;
+        }
+        return true;
+    };
+    
+    
+    // FETCHING COUNTRY FROM API
+    const countryApi = async function (countrySelect) {
+        const res = await fetch('https://restcountries.com/v3.1/all');
+        const data = await res.json();
+    
+        countrySelect.innerHTML = '';
+        console.log(countrySelect);
+    
+        data.forEach(country => {
+            const optionEl = document.createElement('option');
+            optionEl.value = country.name.common;
+            optionEl.text = country.name.common;
+            countrySelect.appendChild(optionEl);
+        });
+    }
+    const countrySelect = document.querySelector('.country-select');
+    countryApi(countrySelect);
+    
+    
+    //EVENT LISTENERS
+    
+    submitBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (validateForm() && validateEmail() && validatePhoneNumber()) {
+            submitForm();
+        }
+    });
+    
+    // Closing popup event
+    closePopupBtn.addEventListener('click', closePopup);
+    
+    
+    </script>
+  </body>
+</html>

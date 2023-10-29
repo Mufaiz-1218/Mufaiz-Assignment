@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+ <style>
+  body {
+    font-family: sans-serif;
+    background: linear-gradient(rgb(12, 12, 12), rgb(59, 59, 56));
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    width: 43px;
+    padding: 4px;
+    margin: 5px 2px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border: none;
+}
+
+.input-type {
+    width: 188px;
+    padding: 10px 4px;
+    margin: 5px 3px;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+}
+
+.ac-btn {
+    font-size: 1.2rem;
+    background: rgb(108, 173, 23);
+    width: 55px;
+    padding: 4px;
+    margin: 5px 2px;
+    border-radius: 9px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-num {
+    background: rgb(97, 97, 97);
+    width: 60px;
+}
+
+.btn-operator {
+    background: orange;
+}
+
+.heading-1 {
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.btn-whole-number {
+    background: rgb(97, 97, 97);
+}
+
+.btn-equal {
+    background-color: brown;
+}
+
+.btn-dot {
+    width: 30px;
+
+}
+
+.btn-multiply {
+    font-weight: bolder;
+
+}
+ </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- <div class="inner-container"> -->
+      <h2 class="heading-1">Calculate me</h2>
+      <div class="row">
+        <input type="text" class="input-type" />
+      </div>
+      <div class="row">
+        <button class="button btn-operator">+</button>
+        <button class="button btn-operator">-</button>
+        <button class="button btn-operator">/</button>
+        <button class="button btn-operator btn-multiply">*</button>
+      </div>
+      <div class="row">
+        <button class="button btn-num">7</button>
+        <button class="button btn-num">8</button>
+        <button class="button btn-num">9</button>
+      </div>
+      <div class="row">
+        <button class="button btn-num">4</button>
+        <button class="button btn-num">5</button>
+        <button class="button btn-num">6</button>
+      </div>
+      <div class="row">
+        <button class="button btn-num">1</button>
+        <button class="button btn-num">2</button>
+        <button class="button btn-num">3</button>
+      </div>
+      <div class="row">
+        <button class="button ac-btn">AC</button>
+        <button class="button btn-whole-number">0</button>
+        <button class="button btn-whole-number btn-dot">.</button>
+        <button class="button btn-equal">=</button>
+      </div>
+      <!-- </div> -->
+    </div>
+    <script>
+      'use strict';
+let currentExpression = '';
+const buttons = document.querySelectorAll('.button');
+const inputDisplay = document.querySelector('.input-type');
+
+const calculate = function (expression) {
+    try {
+        return new Function('return ' + expression)();
+        // this + is used for concaetenation of arguments of dynamically created function using new Function constructor  
+    } catch (error) {
+        return 'Error';
+    }
+};
+
+Array.from(buttons).forEach(button => {
+    button.addEventListener('click', function (e) {
+
+        if (e.target.innerHTML == '=') {
+            currentExpression = calculate(currentExpression);
+            inputDisplay.value = currentExpression;
+        }
+        else if (e.target.innerHTML == 'AC') {
+            currentExpression = '';
+            inputDisplay.value = currentExpression;
+        }
+        else {
+            currentExpression += e.target.innerHTML;
+            inputDisplay.value = currentExpression;
+        }
+    })
+})
+
+
+    </script>
+  </body>
+</html>
